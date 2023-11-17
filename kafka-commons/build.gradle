@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id "org.jsonschema2pojo" version "1.2.1"
+    id 'maven-publish'
+}
+
+group = 'com.userregistration'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jsonschema2pojo:jsonschema2pojo-core:1.2.1'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jsonSchema2Pojo {
+    source = files("src/main/resources/schemas/")
+    targetDirectory = file("src/main/java/com/userregistration")
+    targetPackage = 'com.userregistration.commons'
+    includeGeneratedAnnotation = true
+    generateBuilders = true
+    usePrimitives = true
+    includeHashcodeAndEquals = true
+    includeToString = true
+    annotationStyle = 'jackson'
+    outputEncoding = 'UTF-8'
+    includeConstructors = true
+    serializable = true
+    includeGetters = true
+    includeSetters = true
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.userregistration'
+            artifactId = 'kafka-commons'
+            version = '1.0-SNAPSHOT'
+            from components.java
+        }
+    }
+}
