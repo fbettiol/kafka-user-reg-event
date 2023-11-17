@@ -1,7 +1,7 @@
 # kafka-user-reg-event
 Example project to learn how to use kafka. It has 3 modules:
 - Kafka-commons: it contains the common classes for the producer and consumer. Here the JSON is converted into a generated class using jsonschema2pojo. As the generated classes are required in the producer and consumer (topics and events definitions), and they need the same version, I have created a new module. 
-- kafka-producer: it contains a rest controller on the port 8081 which allows to post user registration events. It is responsible for getting the events and sending them to Kafka. It uses the event classes for the request body of the endpoint. This might not be optimal as they are not necessary the same and might break SOLID. But for learning purposes I considered it was ok.  
+- kafka-producer: it contains a rest controller on the port 8081 which allows to post user registration events. It is responsible for getting the events and sending them to Kafka. It uses the event classes for the request body of the endpoint. This might not be optimal as they are not necessarily the same and breaks SOLID. But for learning purposes I considered it was ok.  
 - kafka-consumer: it contains just a service which logs in the command line the received user registration events.
 
 These are all independent modules. I understand that it could also be possible to have a multi-module project (and then you dont need the maven local repo). But I am not so familiar with Gradle, so I did it they way I "knew".
