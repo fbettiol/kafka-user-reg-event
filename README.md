@@ -8,8 +8,8 @@ Example project to learn how to use kafka. It has 3 modules:
 # Run 
 ## 1) Start the kafka broker. 
 CD to the kafka-broker folder and execute "docker compose up -d". In order to see the logs, you can use the following commands:
-- 'docker exec -it CONTAINER-ID /bin/bash' : open a bash in the container.
-- TODO
+- 'docker exec -it CONTAINER-ID /bin/bash' : opens a bash in the container.
+- kafka-console-consumer --bootstrap-server localhost:9092 --topic userregistration --from-beginning: creates a consumer on the topic to see the messages
 
 ## 2) Build the kafka-commons.
 CD to kafka-commons and execute "./gradlew build" followed by "./gradlew publishMavenPublicationToMavenLocal". This will genereate the classes, compile them, and publish the artifact to the local maven repository.  
