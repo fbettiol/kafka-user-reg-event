@@ -11,7 +11,7 @@ Since the idea was to learn kafka, I have not focused on proper rest controllers
 # Run (*it needs docker installed in order to run the broker*).
 
 ## 1) Start the kafka broker. 
-CD to the kafka-broker folder and execute "docker compose up -d". In order to see the logs, you can use the following commands:
+CD to the kafka-broker folder and execute **docker compose up -d**. In order to see the logs, you can use the following commands:
 - **docker exec -it CONTAINER-ID /bin/bash**: opens a bash in the container.
 - **kafka-console-consumer --bootstrap-server localhost:9092 --topic userregistration --from-beginning**: creates a consumer on the topic 'userregistration' to see the messages going through
 
